@@ -25,5 +25,11 @@ public class Client {
 //        Collections.sort(stList); //for comparable
         Collections.sort(stList, new StudentPSPComparator()); //for comparator
 
+
+        //using lambda expression
+        Collections.sort(stList,(o1,o2)->{
+            return o1.age-o2.age;
+        });
+
     }
 }
