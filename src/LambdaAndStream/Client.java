@@ -124,5 +124,30 @@ public class Client {
           if(op1.isPresent()){
               System.out.println(op1.get());
           }
+
+          //reduce-->terminal function:: it tries to convert your whole stream into single element based
+        //on some logic
+        List<Integer>l6=Arrays.asList(3,2,1);
+        Integer x=  l6.stream().reduce(0,(cur_sum,elem)->{ //identity is default value or initial value
+              return cur_sum+=elem;
+          });
+        System.out.println(x);
+
+        //flatmap-->to convert 2dlist into single list, flatmap returns stream
+        //flat map combine all the stream to one
+
+        List<List<Integer>>list2d=Arrays.asList(
+                Arrays.asList(1,2,3),
+                Arrays.asList(4,5),
+                Arrays.asList(6,7,8,9)
+        );
+        List<Integer>ans1=list2d.stream().flatMap(elem->{
+            return elem.stream();
+        }).collect(Collectors.toList());
+
+        List<Integer>ans2=list2d.stream().flatMap(elem->{
+            return elem.stream().map(elem1->elem1*elem1);
+        }).collect(Collectors.toList());
+
     }
 }
