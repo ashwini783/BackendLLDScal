@@ -1,6 +1,8 @@
 package LambdaAndStream;
 
 import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.List.*;
@@ -65,7 +67,7 @@ public class Client {
         Thread t5=new Thread(()->System.out.println("Hello"));
 
         //Streams
-        List<Integer>l1= Arrays.asList(1,2,3,4,8,9);
+        List<Integer>l1= Arrays.asList(1,10,3,4,8,9);
         Stream<Integer> st=l1.stream();
         // for each is terminal operation
         st.forEach((elem)->System.out.println(elem)); //once this is done st.stream is lost i.e we cant use that stream any more
@@ -83,5 +85,44 @@ public class Client {
         st1.forEach((elem)->System.out.println(elem));
 
 
+        List<Student>list1=new ArrayList<>();
+        list1.add(new Student(22,40.0,"ash",44.0));
+        list1.add(new Student(32,33.3,"abc",88.0));
+        list1.add(new Student(33,45.8,"sima",65.9));
+        list1.stream().filter(elem-> {
+            return elem.psp>20;
+        }).forEach(elem->System.out.println(elem.name+" "+elem.psp));
+
+        //Collect : Terminal method
+       List<Student>l3= list1.stream().filter(elem->{
+            return elem.psp>20;
+        }).collect(Collectors.toList());  //collect is just to collect the data
+       System.out.println(l3);
+
+       //map: Intermediate method, map operation is changing every element
+        List<Integer>l4=l1.stream().filter(elem->{
+            return elem%2==0;
+        }).map(elem->{
+            return elem*elem;
+        }).collect(Collectors.toList());
+        System.out.println(l4);
+
+        //distinct: Intermediate
+
+       List<Integer>l5= l1.stream().
+                distinct().filter(elem->{
+                   return elem%2==0;
+                }).map(elem->{
+                    return elem*elem;
+                }).sorted((o1,o2)->{ return o2-o1;}).collect(Collectors.toList());
+             System.out.println(l5);
+
+             //findFirst->Terminal operation
+        //optional menas -->since we are working many operations it might happen we have nothing left
+          Optional<Integer>op1= l1.stream().distinct().filter(elem-> {return elem%2==0; }).
+           map(elem->{return elem*elem;}).findFirst();
+          if(op1.isPresent()){
+              System.out.println(op1.get());
+          }
     }
 }
