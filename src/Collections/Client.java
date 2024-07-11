@@ -14,5 +14,15 @@ public class Client {
        //3. Vector-->Synchronised that's why its synchronised
         List<Double>list3=new Vector<>();
 
+        //Comparable and Comparator
+
+        List<Student>stList=new ArrayList<>();
+        stList.add(new Student(25,65.0,"Mohit",10.0));
+        stList.add(new Student(22,75.0,"Nishant",100.0));
+        stList.add(new Student(27,85.0,"Rohan",90.0));
+
+//        Collections.sort(stList); //for comparable
+        Collections.sort(stList, new StudentPSPComparator()); //for comparator
+
     }
 }
