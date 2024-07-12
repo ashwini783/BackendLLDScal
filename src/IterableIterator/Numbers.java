@@ -10,7 +10,26 @@ public class Numbers implements Iterable<Integer> {
 
     @Override
     public Iterator<Integer> iterator() {
-//        Iterator<Integer>iterator=new Iterator<Integer>() {}:
+//
+//              way one
+//            Iterator<Integer>rr=new RandomIterator(constructorData);
+//            return rr
 
+            //second way
+            Iterator<Integer>rr=new Iterator<Integer>() { //iterator has two function
+                int index=0;
+                @Override
+                public boolean hasNext() {
+                    return index<list.size();
+//                    return false;
+                }
+
+                @Override
+                public Integer next() {
+                    return list.get(index++);
+//                    return 0;
+                }
+            };
+            return rr;
     }
 }
