@@ -13,12 +13,14 @@ public class Adder implements Callable<Void> {
     }
 
     public Void call() throws Exception {
+//        lock.lock();
         for (int i = 0; i <=1000; i++) {
             lock.lock();
             System.out.println("Adder "+i);
             this.v.value+=i;
             lock.unlock();
         }
+        lock.unlock();
         return null;
     }
 }

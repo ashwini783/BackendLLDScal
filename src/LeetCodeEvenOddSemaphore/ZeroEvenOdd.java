@@ -11,14 +11,14 @@ public class ZeroEvenOdd {
 
     public ZeroEvenOdd(int n) {
         this.n = n;
-        zero = new Semaphore(1);
-        even = new Semaphore(0);
+        zero = new Semaphore(1);// permit is 1 because I want zero to execute
+        even = new Semaphore(0);  //no permit to even and odd
         odd = new Semaphore(0);
     }
     public void zero(IntConsumer printNumber) throws InterruptedException {
         for (int i = 0; i <=n; i++) {
             zero.acquire();
-            printNumber.accept(0);
+            printNumber.accept(0); // to print number its function
             if(i%2==0){
                 even.release();
             }

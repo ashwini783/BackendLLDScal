@@ -7,7 +7,7 @@ public class Consumer implements Runnable {
         this.store = store;
     }
     public void run() {
-        while (true) {
+        while (true) { //till the time consumer keep on consuming
             synchronized (store) {
             if(store.getItem().size()>0) {
                 store.removeItem();

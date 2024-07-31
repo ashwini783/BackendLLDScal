@@ -7,7 +7,7 @@ public class Student {
      static int doSomething(int x) throws Exception {
 
 //        return 1/x;
-
+  // this just throwing the exception
         if(x==0){
             throw new ArithmeticException();  //runtime exception hence no need to mention in code
         }
@@ -18,7 +18,7 @@ public class Student {
             throw new SQLException();  //coming out of Exception class , so need to mention in method
         }
         else if(x==3){
-            throw new NullPointerException();  // runtime exception
+            throw new NullPointerException();  // runtime exception coming from RuntimeException class
         }
         else if(x==4){
             throw new RandomException();

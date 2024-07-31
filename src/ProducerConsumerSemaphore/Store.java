@@ -26,6 +26,6 @@ public class Store {
     }
     public void removeItem() {
         System.out.println("Consumer consuming item, current size is: " + this.items.size());
-        this.items.remove();
+        this.items.remove();//it will automatically delete the last item
     }
 }

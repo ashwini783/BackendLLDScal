@@ -66,9 +66,9 @@ public class Client {
 
         Thread t5=new Thread(()->System.out.println("Hello"));
 
-        //Streams
+        //***Streams***
         List<Integer>l1= Arrays.asList(1,10,3,4,8,9);
-        Stream<Integer> st=l1.stream();
+        Stream<Integer> st=l1.stream();  //Stream of Integer
         // for each is terminal operation
         st.forEach((elem)->System.out.println(elem)); //once this is done st.stream is lost i.e we cant use that stream any more
 //        st.forEach((elem)->{

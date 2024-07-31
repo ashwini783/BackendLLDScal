@@ -10,7 +10,7 @@ public class Producer implements Runnable {
         this.store = store;
     }
     public void run() {
-        while (true) {
+        while (true) { //till the time producer keep on producing
             synchronized (store) {
                 if (store.getItem().size() < store.getMaxSize()) {
                     store.addItem();

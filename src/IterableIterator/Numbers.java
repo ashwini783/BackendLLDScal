@@ -11,21 +11,21 @@ public class Numbers implements Iterable<Integer> {
     @Override
     public Iterator<Integer> iterator() {
 //
-//              way one
+//              way one to write iterator
 //            Iterator<Integer>rr=new RandomIterator(constructorData);
 //            return rr
 
-            //second way
+            //second way, anomous class as it has two abstract method we cant use lambda function
             Iterator<Integer>rr=new Iterator<Integer>() { //iterator has two function
                 int index=0;
                 @Override
-                public boolean hasNext() {
+                public boolean hasNext() {  // hasNext is to tell whether the next data memeber is available or not
                     return index<list.size();
 //                    return false;
                 }
 
                 @Override
-                public Integer next() {
+                public Integer next() {  //just return the element
                     return list.get(index++);
 //                    return 0;
                 }

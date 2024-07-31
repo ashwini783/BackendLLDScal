@@ -28,9 +28,11 @@ public class Client {
 
         //
          List<Dog>dogs=new ArrayList<>();
-        List<Dog>animals=new ArrayList<>();
+         dogs.add(new Dog("tommy"));
+        List<Animal>animals=new ArrayList<>();
         animals.add(new Dog("Tom"));
         animals.add(new Dog("Tom2"));
+
         AnimalUtility.printAnimalNames(animals);
         AnimalUtility.printAnimalNames(dogs);
     }
