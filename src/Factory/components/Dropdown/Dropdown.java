@@ -1,4 +1,5 @@
 package Factory.components.Dropdown;
 
-public class Dropdown {
+public abstract class Dropdown {
+    public abstract void options();
 }

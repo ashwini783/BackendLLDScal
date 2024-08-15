@@ -1,4 +1,4 @@
 package Factory.components.Menu;
 
-public class IOSManu {
+public class IOSManu extends Menu {
 }
