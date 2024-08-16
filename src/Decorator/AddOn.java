@@ -1,9 +1,9 @@
 package Decorator;
 
 public abstract class AddOn implements Beverage {
-
-    Beverage b;
+//I dont want to instantiate AddOn so it is abstract
+    Beverage beverage;
     public AddOn(Beverage b) {
-        this.b = b;
+        this.beverage = b;
     }
 }

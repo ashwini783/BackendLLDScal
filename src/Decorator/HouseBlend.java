@@ -3,7 +3,7 @@ package Decorator;
 public class HouseBlend implements Beverage{
     @Override
     public int getCost() {
-        return 150;
+        return 100;
     }
 
     @Override
