@@ -24,6 +24,6 @@ public class AndroidComponentFactory implements UIComponentFactory {
 
     @Override
     public Menu createMenu() {
-        return new IOSManu();
+        return new AndriodMenu();
     }
 }

@@ -1,24 +1,19 @@
 package Demo;
 
-import com.sun.xml.internal.ws.api.message.Header;
-
-import java.util.Scanner;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class Client {
-
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-
-        ExecutorService es= Executors.newCachedThreadPool();
-          for(int i=1;i<=100;i++){
-              Runnable r=new PrintNum(i);
-                  es.execute(r);
-//              PrintHelloWorld c=new PrintHelloWorld(i);
-//              Future<Void> f=es.submit(c);
-//              f.get();
-
-          }
+   public static void main(String[] args) throws ExecutionException, InterruptedException {
+       ExecutorService es= Executors.newFixedThreadPool(20);
+       for(int i=1;i<=100;i++){
+           PrintNumber num=new PrintNumber(i);
 
 
-    }
+           Future<Void> fs=es.submit(num);
+           fs.get();
+       }
+   }
 }
