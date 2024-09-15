@@ -11,6 +11,7 @@ public class TicketController {
 
     public TicketController(TicketService ticketService) {
         this.ticketService = ticketService;
+
     }
 
     // it is not good idea to actually send the your  model directly to controller, it is never good idea to sent your whole mode back to user as it is
