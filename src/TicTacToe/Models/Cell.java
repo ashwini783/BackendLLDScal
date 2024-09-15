@@ -1,8 +1,23 @@
 package TicTacToe.Models;
 
 public class Cell {
+    private int row;
+    private int col;
+    private CellState cellState;
+    private Symbol symbol;
     public Cell(int i,int j){
-
+         this.row = i;
+         this.col = j;
+         this.cellState = CellState.EMPTY;  //bydefault
+         this.symbol = null;
+    }
+    public void display(){
+        if(symbol!=null){
+            System.out.print("| "+symbol.getSym()+" |");
+        }
+        else{
+            System.out.print("| - |");
+        }
     }
     public int getRow() {
         return row;
@@ -35,10 +50,5 @@ public class Cell {
     public void setSymbol(Symbol symbol) {
         this.symbol = symbol;
     }
-
-    private int row;
-    private int col;
-    private CellState cellState;
-    private Symbol symbol;
 
 }
