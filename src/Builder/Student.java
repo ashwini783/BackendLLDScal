@@ -6,7 +6,7 @@ public class Student {
    final String batch;
     final int gradYear;
     String course;
-    private Student(StudentBuilder builder) {
+     private Student(StudentBuilder builder) {
 //        if(builder.age<10){
 //            throw new IllegalArgumentException("Age must be at least 10");
 //        }

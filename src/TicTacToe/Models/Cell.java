@@ -8,7 +8,7 @@ public class Cell {
     public Cell(int i,int j){
          this.row = i;
          this.col = j;
-         this.cellState = CellState.EMPTY;  //bydefault
+         this.cellState = CellState.EMPTY;  //bydefault or initially
          this.symbol = null;
     }
     public void display(){

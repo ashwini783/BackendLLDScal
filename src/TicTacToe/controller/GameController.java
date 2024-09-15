@@ -6,10 +6,12 @@ import TicTacToe.Models.Player;
 import TicTacToe.strategy.WinningStrategy;
 
 import java.util.*;
+//API-->Controller
 //Game controller to govern our game, game controller will handle the multiple game
 //client will use this game controller class to actually run the application, they wont directly use the Game class
 public class GameController {
 
+    //Game controller to support same thing ,Game controller is exposed to client
     public Game startGame(int dimension, List<Player> players, List<WinningStrategy>winningStrategies){
 
        return Game.getBuilder()
