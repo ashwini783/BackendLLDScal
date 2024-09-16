@@ -17,12 +17,22 @@ public class TicketController {
     // it is not good idea to actually send the your  model directly to controller, it is never good idea to sent your whole mode back to user as it is
     //hence we use DTO--> to help u with communication between client and Controller
 
-    IssueTicketResponseDTO issueTicket(IssueTicketRequestDTO requestDTO){
-        IssueTicketResponseDTO response=new IssueTicketResponseDTO();
-        Ticket ticket=ticketService.issueTicket(requestDTO.getGetId(), requestDTO.getVehicleNumber());
-        response.setTicketId(ticket.getId());
-        response.setResponseStatus(ResponseStatus.SUCCESS);
+    public IssueTicketResponseDTO issueTicket(IssueTicketRequestDTO requestDTO){
 
+        //request object can have lot of other details internally , so we dont send the request dto everywhere
+        IssueTicketResponseDTO response=new IssueTicketResponseDTO();
+        try{
+
+            Ticket ticket=ticketService.issueTicket(requestDTO.getGetId(), requestDTO.getVehicleNumber(),requestDTO.getOwnerName(),requestDTO.getVehicleType());
+            response.setTicket(ticket);
+            response.setResponseStatus(ResponseStatus.SUCCESS);
+
+
+        }
+        catch(Exception ex){
+            response.setResponseStatus(ResponseStatus.FAILURE);
+            response.setFailureMessage(ex.getMessage());
+        }
         return response;
     }
 
