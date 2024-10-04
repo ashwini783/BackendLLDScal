@@ -37,6 +37,7 @@ public class Client {
                     }
               }
               if(gc.checkState(game).equals(GameState.SUCCESS)){
+
                   System.out.println(gc.getWinner(game).getName()+" won the game");
               }
               else if(gc.checkState(game).equals(GameState.DRAW)){
