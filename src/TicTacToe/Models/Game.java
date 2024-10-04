@@ -104,7 +104,7 @@ public class Game {
          nextPlayerIndex--;
          nextPlayerIndex=(nextPlayerIndex+players.size()-1)%players.size();
 
-         for(WinningStrategy strategy:winningStrategies){
+         for(WinningStrategy strategy:winningStrategies){ //to do undo from hashmap
              strategy.handleUndo(board,lastMove);
          }
          setGameState(GameState.IN_PROGRESS);
@@ -129,7 +129,7 @@ public class Game {
             return;
         }
 
-        int row=move.getCell().getRow();
+        int row=move.getCell().getRow(); //this is the place where player want to make move
         int col=move.getCell().getCol();
 
         Cell cellToChange=board.getGrid().get(row).get(col);

@@ -6,14 +6,14 @@ import TicTacToe.Models.Move;
 import java.util.HashMap;
 
 public class RowWinningStrategy implements WinningStrategy{
- //every Game will have separate instace of RowWinningStrategy so, if we keep the member hashmap static it will go wrong
+ //every Game will have separate instance of RowWinningStrategy so, if we keep the member hashmap static it will go wrong
 
    HashMap<Integer,HashMap<Character,Integer>>counts=new HashMap<>();
 
    //for row and column winning strategy, we dont need the board only dimension but keep it in interface since you can have any kind of winning strategy
     @Override
     public boolean checkWinner(Board board, Move move) {
-        //0->{'x':count} {'y':count}
+        //0->{'x':count} {'y':count}  in 0th row  has been played how many times by X or Y
         //1->{'x':count}
         int row=move.getCell().getRow();
         Character sym=move.getCell().getSymbol().getSym();
