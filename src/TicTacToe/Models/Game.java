@@ -129,8 +129,8 @@ public class Game {
             return;
         }
 
-        int row=move.getCell().getRow(); //this is the place where player want to make move
-        int col=move.getCell().getCol();
+        int row = move.getCell().getRow(); //this is the place where player want to make move
+        int col = move.getCell().getCol();
 
         Cell cellToChange=board.getGrid().get(row).get(col);
         cellToChange.setCellState(CellState.FILLED);

@@ -3,7 +3,7 @@ package ParkingLot.models;
 public class Vehicle extends BaseModel{
     private String licensePlate;
     private String ownerName;
-
+    private VehicleType vehicleType;
     public String getOwnerName() {
         return ownerName;
     }
@@ -12,7 +12,7 @@ public class Vehicle extends BaseModel{
         this.ownerName = ownerName;
     }
 
-    private VehicleType vehicleType;
+
 
     public String getLicensePlate() {
         return licensePlate;

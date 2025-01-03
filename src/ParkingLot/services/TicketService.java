@@ -28,8 +28,8 @@ public class TicketService {
           ticket.setEntryTime(new Date());
 
           //now set the gate
-        Optional<Gate>gateOptional=gateRepository.findGateById(gateId);
-        if(gateOptional.isPresent()){
+        Optional<Gate>gateOptional=gateRepository.findGateById(gateId); //through gateId from DB extract the information of Gate from Repository
+        if(!gateOptional.isPresent()){
             throw new Exception("Gate not found");
         }
         Gate gate=gateOptional.get();
@@ -38,7 +38,7 @@ public class TicketService {
 
          Optional<Vehicle>vehicleOptional= vehicleRepository.findVehiclebyNumber(vehicleNumber);
          Vehicle vehicle;
-         if(vehicleOptional.isPresent()){
+         if(!vehicleOptional.isPresent()){
              vehicle=new Vehicle();
              vehicle.setLicensePlate(vehicleNumber);
              vehicle.setOwnerName(ownerName);

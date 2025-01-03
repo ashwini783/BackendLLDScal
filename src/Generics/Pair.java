@@ -27,9 +27,9 @@ public class Pair<V,S> {
      System.out.println(val);
      return val;
     }
-//    public static  void  doSomething(V val1, S val2){   // V and S not available here as its generic method
-//        System.out.println(val);
-//    }
+    public static <V,S> void  doSomething(V val1, S val2){   // V and S not available here as its generic method
+        System.out.println(val1);
+    }
 
     public <Z> Z doAgain(Z val1, V val2){
 

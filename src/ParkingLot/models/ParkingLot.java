@@ -9,6 +9,7 @@ public class ParkingLot extends  BaseModel {
     private List<Gate> entryGates;
     private List<Gate> exitGate;
     private List<SupportedVehicleType>vehicleTypes;
+    private SlotAssignmentStrategyType slotAssignmentStrategyType;
 
     public SlotAssignmentStrategyType getSlotAssignmentStrategyType() {
         return slotAssignmentStrategyType;
@@ -18,7 +19,7 @@ public class ParkingLot extends  BaseModel {
         this.slotAssignmentStrategyType = slotAssignmentStrategyType;
     }
 
-    private SlotAssignmentStrategyType slotAssignmentStrategyType;
+
 
     public List<ParkingFloor> getParkingFloor() {
         return parkingFloor;

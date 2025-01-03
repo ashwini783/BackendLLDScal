@@ -15,12 +15,11 @@ public class Client {
         VehicleRepository vehicleRepository=new VehicleRepository();
         TicketRepository ticketRepository=new TicketRepository();
         TicketService ticketService=new TicketService(gateRepository,vehicleRepository,ticketRepository);
-
         TicketController ticketController=new TicketController(ticketService);
         IssueTicketRequestDTO request=new IssueTicketRequestDTO();
         request.setGetId(1);
         request.setVehicleNumber("DL 1vc 0001");
-        request.setOwnerName(" Ashwini ");
+        request.setOwnerName("Ashwini");
         IssueTicketResponseDTO responseDTO=ticketController.issueTicket(request);
 
         if(responseDTO.getResponseStatus().equals(ResponseStatus.SUCCESS)){
@@ -32,10 +31,11 @@ public class Client {
         }
     }
 }
+
 //creation of ticket:CRUD   Ticket-->TicketController
 //Floor-->FloorController
 //Client-->Controller->Service->Model
-
+// we have just setup our ticket object and assigned slot using assignedSlot Strategy and saved the ticket and returned ticket
 //Client-->TicketController-->TicketService-->Repository
 
 //Complete code and  implement generate Bill function

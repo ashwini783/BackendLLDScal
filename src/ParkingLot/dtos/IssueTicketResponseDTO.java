@@ -31,7 +31,4 @@ public class IssueTicketResponseDTO {
     public void setResponseStatus(ResponseStatus responseStatus) {
         this.responseStatus = responseStatus;
     }
-
-
-
 }

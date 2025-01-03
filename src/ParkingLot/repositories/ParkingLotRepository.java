@@ -8,10 +8,10 @@ import java.util.TreeMap;
 public class ParkingLotRepository {
     private TreeMap<Integer, ParkingLot> parkingLots=new TreeMap<>();
 
-    public ParkingLot findParkingLotByEntryGate(Gate gateTocheck){
+    public ParkingLot findParkingLotByEntryGate(Gate gateToCheck){
           for(ParkingLot parkingLot:parkingLots.values()){
               for(Gate gate: parkingLot.getEntryGates()){
-                  if(gate.getId()==gateTocheck.getId()){
+                  if(gate.getId()==gateToCheck.getId()){
                       return parkingLot;
                   }
               }
