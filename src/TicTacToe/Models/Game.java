@@ -129,6 +129,7 @@ public class Game {
             return;
         }
 
+          //update the state of game
         int row = move.getCell().getRow(); //this is the place where player want to make move
         int col = move.getCell().getCol();
 

@@ -6,7 +6,5 @@ public class HumanPlayer extends Player{
 
         super(id, name, playerType, symbol);
 
-        System.out.print("hi");
-
     }
 }

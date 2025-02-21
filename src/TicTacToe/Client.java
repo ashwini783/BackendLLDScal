@@ -12,16 +12,21 @@ import java.util.Scanner;
 
 public class Client {
     static Scanner scn=new Scanner(System.in);
-    public static void main(String[] args) {
+    public static void main(String[] args) { // Client will interacting with GameController
         GameController gc=new GameController(); //whenever request came , it came to controller
         //one game controller should be able to handle the multiple game
 
         //practically Controller should not return Game , it should return gameId and based on gameId I will pul the game
         //out of DB or cache and then I will do the move on that Game. ideally it should handle via dtos
-        List<Player> players=new ArrayList<>();
-           players.add(new HumanPlayer(1,"Aman", PlayerType.HUMAN,new Symbol('0')));
-           players.add(new BotPlayer(2,"Bot",PlayerType.BOT,new Symbol('x'),BoatDifficultyLevel.EASY));
-            Game game=gc.startGame(3,players, Arrays.asList(new RowWinningStrategy(),new ColWinningStrategy()));
+       Player humnaPlayer= new HumanPlayer(1,"Aman", PlayerType.HUMAN,new Symbol('0'));
+       Player botPlayer= new BotPlayer(2,"Bot",PlayerType.BOT,new Symbol('x'),BoatDifficultyLevel.EASY);
+
+        List<Player> playersList=new ArrayList<>();
+
+           playersList.add(humnaPlayer);
+           playersList.add(botPlayer);
+
+            Game game=gc.startGame(3,playersList, Arrays.asList(new RowWinningStrategy(),new ColWinningStrategy()));
               gc.display(game);
 
               while(gc.checkState(game).equals(GameState.IN_PROGRESS)){
@@ -45,6 +50,15 @@ public class Client {
               }
     }
 }
+
+//Flow of game-- Methods Game should expose to client via gameController
+//1. start Game
+//2.checkGame state
+//3.make Move
+//4.display
+//5.getWinner
+//6.Undo
+//============
 //1.Create your Models
 //2.get ready your controller and basic interaction with Client
 //3.Make sure every model has constructor

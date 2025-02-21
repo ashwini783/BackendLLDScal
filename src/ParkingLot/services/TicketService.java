@@ -51,7 +51,7 @@ public class TicketService {
          ticket.setVehicle(vehicle);
 
         //2.Assign the slot
-         ParkingLot parkingLot=gate.getParkingLot();
+           ParkingLot parkingLot=gate.getParkingLot();
          ParkingSlots parkingSlots= SlotAssignmentStrategyFactory
                  .getSlotAssignmentStrategyByType(parkingLot.getSlotAssignmentStrategyType())
                  .assignSlot(parkingLot,vehicleType);

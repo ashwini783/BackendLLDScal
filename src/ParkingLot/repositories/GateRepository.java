@@ -7,7 +7,7 @@ import java.util.Optional;
 public class GateRepository {
 
     //optinal means there can be chance of data wont be present
-    public Optional<Gate> findGateById(int gateid){
+    public Optional<Gate> findGateById(int gateid){  //gate might be null also
         return Optional.empty();
 //        select*from Gate where gate_id=gateid;
 
